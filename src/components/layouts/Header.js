@@ -63,16 +63,20 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown - FIXED POSITION OVERLAY */}
+{/* Mobile Menu Dropdown - FIXED POSITION OVERLAY */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 p-4 shadow-2xl overflow-y-auto"> {/* <-- UPDATED CLASSES */}
+        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 p-4 shadow-2xl overflow-y-auto">
           <div className="flex flex-col space-y-2 mt-2">
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#offer">Hostel Offer</NavLink>
-            <NavLink href="#testimonials">Testimonials</NavLink>
-            <NavLink href="#faqs">FAQs</NavLink>
+            
+            {/* Pass the closeMenu function to each NavLink */}
+            <NavLink href="#services" onClick={closeMenu}>Services</NavLink>
+            <NavLink href="#offer" onClick={closeMenu}>Hostel Offer</NavLink>
+            <NavLink href="#testimonials" onClick={closeMenu}>Testimonials</NavLink>
+            <NavLink href="#faqs" onClick={closeMenu}>FAQs</NavLink>
+            
             <a 
                 href="#services" 
+                onClick={closeMenu} // <-- Also apply to the main CTA button
                 className="w-full text-center py-3 mt-4 text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition font-semibold"
             >
                 Book Now
