@@ -28,6 +28,10 @@ const UNISCAPE_LOGO = (
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // --- FIX: DEFINE THE closeMenu FUNCTION HERE ---
+  // This function is now correctly defined within the Header component's scope.
+  const closeMenu = () => setIsMenuOpen(false); 
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,12 +67,12 @@ const Header = () => {
         </div>
       </div>
 
-{/* Mobile Menu Dropdown - FIXED POSITION OVERLAY */}
+      {/* Mobile Menu Dropdown - FIXED POSITION OVERLAY */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-20 bg-white z-40 p-4 shadow-2xl overflow-y-auto">
           <div className="flex flex-col space-y-2 mt-2">
             
-            {/* Pass the closeMenu function to each NavLink */}
+            {/* Pass the correct closeMenu function to each link */}
             <NavLink href="#services" onClick={closeMenu}>Services</NavLink>
             <NavLink href="#offer" onClick={closeMenu}>Hostel Offer</NavLink>
             <NavLink href="#testimonials" onClick={closeMenu}>Testimonials</NavLink>
